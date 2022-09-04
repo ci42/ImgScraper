@@ -24,9 +24,9 @@ type PixabayImgSearch struct {
 	apikey string
 }
 
-func NewPixabayImgSearch(timeoutInSeconds int64, apikey string) *PixabayImgSearch {
+func NewPixabayImgSearch(timeout time.Duration, apikey string) *PixabayImgSearch {
 	c := http.Client{
-		Timeout: time.Second * time.Duration(timeoutInSeconds),
+		Timeout: timeout,
 	}
 	s := PixabayImgSearch{
 		hc:     c,

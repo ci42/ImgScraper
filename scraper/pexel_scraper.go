@@ -28,9 +28,9 @@ type PexelsImgSearch struct {
 	apikey string
 }
 
-func NewPexelsImgSearch(timeoutInSeconds int64, apikey string) *PexelsImgSearch {
+func NewPexelsImgSearch(timeout time.Duration, apikey string) *PexelsImgSearch {
 	c := http.Client{
-		Timeout: time.Second * time.Duration(timeoutInSeconds),
+		Timeout: timeout,
 	}
 	s := PexelsImgSearch{
 		hc:     c,

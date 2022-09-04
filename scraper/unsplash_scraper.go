@@ -28,9 +28,9 @@ type UnsplashImgSearch struct {
 	apikey string
 }
 
-func NewUnsplashImgSearch(timeoutInSeconds int64, apikey string) *UnsplashImgSearch {
+func NewUnsplashImgSearch(timeout time.Duration, apikey string) *UnsplashImgSearch {
 	c := http.Client{
-		Timeout: time.Second * time.Duration(timeoutInSeconds),
+		Timeout: timeout,
 	}
 	s := UnsplashImgSearch{
 		hc:     c,
